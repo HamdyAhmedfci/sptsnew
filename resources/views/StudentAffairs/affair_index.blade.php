@@ -283,7 +283,7 @@
                                         <td> {{ $info->Birthdate }}</td>
                                         <td> {{ $info->Nation }}</td>
                                         <td> {{ $info->ReligName }}</td>
-                                        <td> {{ $info->DistrictName . ' / '. $info->TownName. ' / '. $info->GovName }}</td>
+                                        <td> {{ $info->DistrictName . ' / '. $info->TownName. ' / '. $info->GovName  }}</td>
                                         <td>
                                             <a href="{{ url('affair/show/'. $info->StudentSsn) }}" class="btn btn-info m-r-1em">Show</a>
                                             <a href="{{ url('affair/edit/'. $info->id) }}" class="btn btn-primary m-r-1em">Edit</a>

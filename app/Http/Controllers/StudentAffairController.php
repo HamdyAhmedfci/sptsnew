@@ -16,6 +16,11 @@ use App\Models\EduLevel;
 use App\Models\Sublevel;
 use App\Models\Term;
 use App\Models\EduData1;
+use App\Models\edudata;
+use App\Models\stumatrial;
+
+
+use Carbon\Carbon;
 
 
 class StudentAffairController extends Controller
@@ -160,10 +165,13 @@ class StudentAffairController extends Controller
         ->join('town', 'students.TownId','=','town.id')
         ->join('district', 'students.DistrictId','=','district.id')
         ->leftjoin('education_data', 'education_data.StudentSsn','=','students.StudentSsn')
+        ->join('terms','education_data.TermId','=','terms.id')
         ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
         ->leftjoin('sublevel','sublevel.id','=','education_data.LevelId')
         ->leftjoin('educational_level','educational_level.id','=','sublevel.LevelId')
         ->leftjoin('student_disease','students.StudentSsn','=','student_disease.StudentSsn')
+        ->where( 'academicyear.year', Carbon::today()->year)
+        ->where('terms.TermName','first term')
         ->select('students.*',
                   'gender.Sex',
                   'nationality.Nation',
@@ -317,18 +325,41 @@ class StudentAffairController extends Controller
 
     // ---------------------------------------------------------------------------------------------------------------------------
 
-    public function one(){
-        $data = EduData1::join('students','education_data.StudentSsn','=','students.StudentSsn')
-        ->join('student_disease','education_data.StudentSsn','=','student_disease.StudentSsn')
-        ->join('gender','students.GenderId','=','gender.id')
-        ->join('sublevel','education_data.LevelId','=','sublevel.id')
-        ->join('educational_level','sublevel.LevelId','=','educational_level.id')
-        ->where('sublevel.SubLevelName','one')
-        ->select('student_disease.*','education_data.*','students.*','sublevel.*','educational_level.*','gender.Sex')
-        ->get();
+//     public function grade($StudentSsn){
+//         $sum = stumatrial::sum('score');
+// //  dd($sum);
+//         $data = Affairs::join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+//         ->join('student_material','student_material.StudentSsn','=','education_data.StudentSsn')
+//         ->join('materials','materials.id','=','student_material.MaterialId')
+//         ->join('edumaterial','edumaterial.MaterialId','=','materials.id')
+//         ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
+//         ->join('terms','education_data.TermId','=','terms.id')
+//         ->where( 'academicyear.year', Carbon::today()->year)
+//         // ->where('terms.TermName','first term')
+//         ->select('student_material.StudentSsn','materials.MaterialName','student_material.score','education_data.Status')->get()->where('StudentSsn','=',$StudentSsn);
 
-        return view('StudentAffairs.1.affair_index_one', ['data'=>$data]);
-    }
+//     dd($data);
+
+//     }
+
+//  public function grade1($StudentSsn){
+
+//         $f = stumatrial::find($StudentSsn);
+//         dd($document->status);
+//  }
+    // ------------------------------------------------------------------------------------------
+    // public function one(){
+    //     $data = EduData1::join('students','education_data.StudentSsn','=','students.StudentSsn')
+    //     ->join('student_disease','education_data.StudentSsn','=','student_disease.StudentSsn')
+    //     ->join('gender','students.GenderId','=','gender.id')
+    //     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    //     ->join('educational_level','sublevel.LevelId','=','educational_level.id')
+    //     ->where('sublevel.SubLevelName','one')
+    //     ->select('student_disease.*','education_data.*','students.*','sublevel.*','educational_level.*','gender.Sex')
+    //     ->get();
+
+    //     return view('StudentAffairs.1.affair_index_one', ['data'=>$data]);
+    // }
 
 // ----------------------------------------------
 // ----------------------------------------------
@@ -342,19 +373,14 @@ public function f1(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->join('terms','education_data.TermId','=','terms.id')
     ->where('sublevel.SubLevelName','one')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
-
-    // $data = EduData1::join('students','education_data.StudentSsn','=','students.StudentSsn')
-    // ->join('student_disease','education_data.StudentSsn','=','student_disease.StudentSsn')
-    // ->join('gender','students.GenderId','=','gender.id')
-    // ->join('sublevel','education_data.LevelId','=','sublevel.id')
-    // ->join('educational_level','sublevel.LevelId','=','educational_level.id')
-    // ->where('sublevel.SubLevelName','one')
-    // ->select('student_disease.*','education_data.*','students.*','sublevel.*','educational_level.*','gender.Sex')
-    // ->get();
 
     return view('StudentAffairs.affair_index', ['data'=>$data]);
 }
@@ -367,8 +393,12 @@ public function f2(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->join('terms','education_data.TermId','=','terms.id')
     ->where('sublevel.SubLevelName','two')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
 
@@ -383,8 +413,12 @@ public function f3(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->join('terms','education_data.TermId','=','terms.id')
     ->where('sublevel.SubLevelName','three')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
 
@@ -399,8 +433,12 @@ public function f4(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->join('terms','education_data.TermId','=','terms.id')
     ->where('sublevel.SubLevelName','four')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
 
@@ -415,8 +453,12 @@ public function f5(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->join('terms','education_data.TermId','=','terms.id')
     ->where('sublevel.SubLevelName','five')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
 
@@ -431,11 +473,14 @@ public function f6(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
-    ->where('sublevel.SubLevelName','sex')
+    ->join('terms','education_data.TermId','=','terms.id')
+    ->where('sublevel.SubLevelName','six')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
-
     return view('StudentAffairs.affair_index', ['data'=>$data]);
 }
 
@@ -447,11 +492,14 @@ public function f7(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->join('terms','education_data.TermId','=','terms.id')
     ->where('sublevel.SubLevelName','seven')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
-
     return view('StudentAffairs.affair_index', ['data'=>$data]);
 }
 
@@ -463,8 +511,12 @@ public function f8(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->join('terms','education_data.TermId','=','terms.id')
     ->where('sublevel.SubLevelName','eight')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
 
@@ -479,8 +531,12 @@ public function f9(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->join('terms','education_data.TermId','=','terms.id')
     ->where('sublevel.SubLevelName','nine')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
 
@@ -495,8 +551,12 @@ public function f10(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->join('terms','education_data.TermId','=','terms.id')
     ->where('sublevel.SubLevelName','ten')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
 
@@ -511,8 +571,12 @@ public function f11(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->join('terms','education_data.TermId','=','terms.id')
     ->where('sublevel.SubLevelName','eleven')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
 
@@ -527,12 +591,60 @@ public function f12(){
     ->join('town', 'students.TownId','=','town.id')
     ->join('district', 'students.DistrictId','=','district.id')
     ->join('education_data','education_data.StudentSsn','=','students.StudentSsn')
+    ->leftjoin('academicyear','academicyear.id','=','education_data.AcdYearId')
     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->join('terms','education_data.TermId','=','terms.id')
     ->where('sublevel.SubLevelName','twelve')
+    ->where( 'academicyear.year', Carbon::today()->year)
+    ->where('terms.TermName','first term')
     ->select('students.*','gender.Sex','nationality.Nation','religion.ReligName','governorate.GovName','town.TownName','district.DistrictName')
     ->orderby('id', 'asc')->get();
 
     return view('StudentAffairs.affair_index', ['data'=>$data]);
 }
 
+
+public function upgrade($StudentSsn){
+    $data = Edudata::join('students','education_data.StudentSsn','=','students.StudentSsn')
+    // ->join('student_disease','education_data.StudentSsn','=','student_disease.StudentSsn')
+    // ->join('gender','students.GenderId','=','gender.id')
+    ->join('educational_level','sublevel.LevelId','=','educational_level.id')
+    ->join('sublevel','education_data.LevelId','=','sublevel.id')
+    ->select('students.*','educational_level.EduLevelName','sublevel.SubLevelName');
+
+    if('sublevel.SubLevelName'==='one'){
+        'sublevel.SubLevelName'==('sublevel.SubLevelName'==='two');
+    }
+
 }
+
+// public function upgrade1($StudentSsn){
+// $d = $request->validate([
+//     'AcdYearId'    ,// =>'required|numeric',
+//     'LevelId'
+// ]);
+
+// if('AcdYearId'==Carbon::today()->year){
+
+// }
+// $edudata = EduData::where('StudentSsn','=',$request->StudentSsn)->update([
+//         'AcdYearId'      =>$request->AcdYearId,
+//         'LevelId'        =>$request->LevelId,
+//         // 'TermId'         =>$request->TermId
+//     ]);
+
+
+//     $data = Edudata::join('students','education_data.StudentSsn','=','students.StudentSsn')
+//     // ->join('student_disease','education_data.StudentSsn','=','student_disease.StudentSsn')
+//     // ->join('gender','students.GenderId','=','gender.id')
+//     ->join('educational_level','sublevel.LevelId','=','educational_level.id')
+//     ->join('sublevel','education_data.LevelId','=','sublevel.id')
+//     ->select('students.*','educational_level.EduLevelName','sublevel.SubLevelName');
+
+//     if('sublevel.SubLevelName'==='one'){
+//         'sublevel.SubLevelName'==('sublevel.SubLevelName'==='two');
+//     }
+
+// }
+}
+

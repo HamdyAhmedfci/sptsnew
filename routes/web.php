@@ -156,6 +156,8 @@ Route::get('affair/index/ten','studentAffairController@f10');
 Route::get('affair/index/eleven','studentAffairController@f11');
 Route::get('affair/index/twelve','studentAffairController@f12');
 
+Route::get('affair/grade/{StudentSsn}','studentAffairController@grade');
+// Route::get('affair/grade1/{StudentSsn}','studentAffairController@grade1');
 
 //--------------------------- End StudentAffair------------------------------------
 
