@@ -43,16 +43,17 @@
 
                     </li>
                     <li class="nav-item nav-profile dropdown">
+
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img src="images/faces/my-profile-icon-png-3 (1).jpg" alt="profile" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
                             <a class="dropdown-item">
-                                <i class="ti-settings text-primary"></i>
-                                Settings
+                                <i class="ti- text-primary"></i>
+                                Show Profile
                             </a>
-                            <a class="dropdown-item">
+                            <a href="{{ url('/doctor/logout') }}" class="dropdown-item">
                                 <i class="ti-power-off text-primary"></i>
                                 Logout
                             </a>
@@ -102,87 +103,90 @@
             <!-- partial:partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url('doctor/index') }}">
-                      <i class="icon-grid menu-icon"></i>
-                      <span class="menu-title">Dashboard</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#primary" aria-expanded="false" aria-controls="primary">
-                      <i class="icon-book menu-icon"></i>
-                      <span class="menu-title">primary</span>
-                      <i class="menu-arrow"></i>
-                    </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('doctor/index') }}">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#primary" aria-expanded="false"
+                            aria-controls="primary">
+                            <i class="icon-book menu-icon"></i>
+                            <span class="menu-title">primary</span>
+                            <i class="menu-arrow"></i>
+                        </a>
 
-                    <div class="collapse" id="primary">
-                    <ul class="nav flex-column sub-menu">
+                        <div class="collapse" id="primary">
+                            <ul class="nav flex-column sub-menu">
 
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/one') }}" > 1 </a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/two') }}" > 2 </a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/three') }}" >3</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/four') }}" >4</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/five') }}" >5</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/sex') }}" >6</a></li>
-                    </ul>
-                    </div>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/one') }}"> 1
+                                    </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/two') }}"> 2
+                                    </a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/three') }}">3</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/four') }}">4</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/five') }}">5</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/sex') }}">6</a></li>
+                            </ul>
+                        </div>
 
 
 
-                  </li>
-                              <!-- ************************************************************************** -->
-                        <!-- **************************************************************************************** -->
-                        <li class="nav-item">
-                          <a class="nav-link" data-toggle="collapse" href="#middle" aria-expanded="false" aria-controls="middle">
+                    </li>
+                    <!-- ************************************************************************** -->
+                    <!-- **************************************************************************************** -->
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#middle" aria-expanded="false"
+                            aria-controls="middle">
                             <i class="icon-book menu-icon"></i>
                             <span class="menu-title">middle</span>
                             <i class="menu-arrow"></i>
-                          </a>
+                        </a>
 
-                          <div class="collapse" id="middle">
-                          <ul class="nav flex-column sub-menu">
+                        <div class="collapse" id="middle">
+                            <ul class="nav flex-column sub-menu">
 
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/seven') }}"> 1 </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/eight') }}"> 2 </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/nine') }}">3</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/seven') }}">
+                                        1 </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/eight') }}">
+                                        2 </a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/nine') }}">3</a></li>
 
-                          </ul>
-                          </div>
-                        </li>
-                        <!-- *************************************************************************** -->
-                        <li class="nav-item">
-                          <a class="nav-link" data-toggle="collapse" href="#secondary" aria-expanded="false" aria-controls="secondary">
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- *************************************************************************** -->
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#secondary" aria-expanded="false"
+                            aria-controls="secondary">
                             <i class="icon-book menu-icon"></i>
                             <span class="menu-title">secondary</span>
                             <i class="menu-arrow"></i>
-                          </a>
+                        </a>
 
-                          <div class="collapse" id="secondary">
-                          <ul class="nav flex-column sub-menu">
+                        <div class="collapse" id="secondary">
+                            <ul class="nav flex-column sub-menu">
 
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/ten') }}"> 1 </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/eleven') }}"> 2 </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/twelve') }}">3</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/ten') }}"> 1
+                                    </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/eleven') }}">
+                                        2 </a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/twelve') }}">3</a></li>
 
-                          </ul>
-                          </div>
+                            </ul>
+                        </div>
 
-                        </li>
-
-                  {{-- <li class="nav-item">
-                    <a class="nav-link" href="{{ url('doctor/create') }}">
-                      <i class="icon-plus menu-icon"></i>
-                      <span class="menu-title">Add Student</span>
-                    </a>
-                  </li> --}}
-
-
-
-
-
+                    </li>
 
                 </ul>
-              </nav>
+            </nav>
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
@@ -195,24 +199,12 @@
 
                                 <div class="card-body">
 
-                                    {{-- @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif --}}
+
 
                                     <h4 class="card-title">Basic Data</h4>
-                                    <!-- <p class="card-description">
-                      Basic form layout
-                    </p> -->
+
                                     <form class="forms-sample" action="{{ 'doctor/update' }}" method="POST">
-                                        {{-- @method('PUT') --}}
                                         @csrf
-{{--  --}}
 
                                         @if ($errors->any())
                                             <div class="alert alert-danger">
@@ -226,270 +218,86 @@
 
                                         <input type="hidden" name="id" value="{{ $data->id }}">
 
-                                        {{-- <div class="form-group">
-                                            <label for="exampleInputfssn">Student Name</label>
-                                            <input type="text" class="form-control" name="Name"
-                                                value="{{ $data->Name }}" id="exampleInputfssn" placeholder="student name"
-                                                style="width: 50%;" >
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputfssn">Father Name</label>
-                                            <input type="text" class="form-control" name="FatherName"
-                                                value="{{ $data->FatherName }}" id="exampleInputfssn" placeholder="father name"
-                                                style="width: 50%;" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputfssn">Surname</label>
-                                            <input type="text" class="form-control" name="Surname"
-                                                value="{{ $data->Surname }}" id="exampleInputfssn" placeholder="surname"
-                                                style="width: 50%;" >
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputSsn">Student Ssn</label>
-                                            <input type="text" class="form-control" name="StudentSsn"
-                                                value="{{ $data->StudentSsn }}" id="exampleInputSsn" placeholder="studentSsn"
-                                                style="width: 50%;" minlength="14" maxlength="14">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="exampleSelectReligion">Governorate</label>
-                                            <select class="form-control" name="GovernorateId" style="width: 50%;">
-                                                @foreach ($govern as $info)
-                                                    <option value="{{ $info->Id }}"
-                                                        @if ($data->GovernorateId == $info->Id) selected @endif>
-                                                        {{ $info->GovName }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleSelectReligion">Town</label>
-                                            <select class="form-control" name="TownId" style="width: 50%;">
-                                                @foreach ($town as $info)
-                                                    <option value="{{ $info->Id }}"
-                                                        @if ($data->TownId == $info->Id) selected @endif>
-                                                        {{ $info->TownName }}</option>
-                                                @endforeach
 
 
-                                            </select>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleSelectReligion">District</label>
-                                            <select class="form-control" name="DistrictId" style="width: 50%;">
-                                                @foreach ($dist as $info)
-                                                    <option value="{{ $info->Id }}"
-                                                        @if ($data->DistrictId == $info->Id) selected @endif>
-                                                        {{ $info->DistrictName }}</option>
-                                                @endforeach
 
-
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group ">
-                                            <label for="exampleSelectGender">Gender</label>
-                                            <select class="form-control" name="GenderId" style="width: 50%;">
-                                                @foreach ($sex as $born)
-                                                    <option value="{{ $born->id }}"
-                                                        @if ($data->GenderId == $born->id) selected @endif>
-                                                        {{ $born->Sex }}</option>
-                                                @endforeach
-
-
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="exampleInputBirth1">Birth Date</label>
-                                            <input type="date" class="form-control" id="exampleInputBirthdate"
-                                                name="Birthdate" value="{{ $data->Birthdate }}"
-                                                placeholder="Birthdate" style="width: 50%;">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="exampleSelectGender">Nationality</label>
-                                            <select class="form-control" name="NationalityId" style="width: 50%;">
-                                                @foreach ($nation as $where)
-                                                    <option value="{{ $where->id }}"
-                                                        @if ($data->NationalityId == $where->id) selected @endif>
-                                                        {{ $where->Nation }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <label for="exampleSelectReligion">Religion</label>
-                                            <select class="form-control" name="ReligionId" style="width: 50%;">
-                                                @foreach ($religion as $info)
-                                                    <option value="{{ $info->id }}"
-                                                        @if ($data->ReligionId == $info->id) selected @endif>
-                                                        {{ $info->ReligName }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
- --}}
-
-                                        {{-- <br>
                                         <hr>
-                                        <h3>
-                                            <h4>family data</h4>
+                                        <h4>Health data</h4>
+                                        <br>
+
+                                        <div class="form-group ">
+                                            <label for="exampleInputchroinc" class="col-sm-2 col-form-label"><b>Have
+                                                    Chroinc</b></label>
+                                            <div class="col-sm-9">
+
+                                                <input type="text" class="form-control" name='chronic'
+                                                    @foreach ($disease as $dis) value=" {{ $dis->chronic }}" @endforeach
+                                                    id="exampleInputchronic" placeholder="Yes / No"
+                                                    style="width: 20%;">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group " style="padding-right: .5em;">
+                                            <label for="exampleInputAddress"><b>Health</b></label>
                                             <br>
-
-
-                                            <div class="form-group ">
-                                                <label for="exampleInputfssn">Father Ssn</label>
-                                                <input type="text" class="form-control" name="FatherSsn"
-                                                    value="{{ $data->FatherSsn }}" id="exampleInputfssn" placeholder="father ssn"
-                                                    style="width: 50%;" minlength="14" maxlength="14">
-                                            </div>
-                                            <div class="form-group ">
-                                                <label for="exampleInputfjob">Father Job</label>
-                                                <input type="text" class="form-control" name="FatherJob"
-                                                    value="{{ $data->FatherJob }}" id="exampleInputfjob" placeholder="father job"
-                                                    style="width: 50%;">
-                                            </div>
-                                            <div class="form-group ">
-                                                <label for="exampleInputfphone">Father Phone</label>
-                                                <input type="text" class="form-control" name="FatherPhone"
-                                                    value="{{ $data->FatherPhone }}" id="exampleInputfphone" placeholder="father phone"
-                                                    style="width: 50%;" maxlength="11">
-                                            </div>
-                                            <div class="form-group ">
-                                                <label for="exampleInputmname">Mother Name</label>
-                                                <input type="text" class="form-control" name="MotherName"
-                                                    value="{{ $data->MotherName }}" id="exampleInputmname" placeholder="mother name"
-                                                    style="width: 50%;">
-                                            </div>
-                                            <div class="form-group ">
-                                                <label for="exampleInputmssn">Mother Ssn</label>
-                                                <input type="text" class="form-control" name="MotherSsn"
-                                                    value="{{ $data->MotherSsn }}" id="exampleInputmssn" placeholder="mother ssn"
-                                                    style="width: 50%;" minlength="14" maxlength="14" >
-                                            </div>
-                                            <div class="form-group ">
-                                                <label for="exampleInputmjob">Mother Job</label>
-                                                <input type="text" class="form-control" name="MotherJob"
-                                                    value="{{ $data->MotherJob }}" id="exampleInputmjob" placeholder="mother job"
-                                                    style="width: 50%;">
-                                            </div>
-                                            <div class="form-group ">
-                                                <label for="exampleInputmphone">Mother Phone</label>
-                                                <input type="text" class="form-control" name="MotherPhone"
-                                                    value="{{ $data->MotherPhone}}" id="exampleInputmphone" placeholder="mother phone"
-                                                    style="width: 50%;" maxlength="11">
-                                            </div> --}}
-
-
-
-{{-- ------------------------------------------------         Educatin       --}}
-                                            {{-- <div class="form-group">
-                                                <label for="exampleSelectA">Academic Year</label>
-                                                <select class="form-control" name="AcdYearId" id="exampleSelectA">
-                                                    @foreach ($year as $info)
-                                                        <option value="{{ $info->id }}">
-                                                            {{ $info->year }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleSelectStage">Educational Level</label>
-                                                <select class="form-control" name="LevelId" id="exampleSelectGender">
-                                                    @foreach ($sub as $info)
-                                                    <option value="{{ $info->id }}">
-                                                        {{ $info->SublevelName .' - '. $info->EduLevelName }}</option>
-                                                @endforeach
-                                                </select>
-                                            </div> --}}
-                                            {{-- <div class="form-group">
-                                                <label for="exampleInputClass">Term</label>
-                                                <select class="form-control" name="TermId" id="exampleSelectGender">
-                                                    @foreach ($term as $info)
-                                                        <option value="{{ $info->id }}"
-                                                            >
-                                                            {{ $info->TermName }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div><br><br> --}}
-
-
-
-{{-- -----------------------------------------------         Health          --}}
-
-
-                                            <hr>
-                                            <h4>Health data</h4>
-                                            <br>
-
-                                            <div class="form-group ">
-                                                <label for="exampleInputchroinc"
-                                                    class="col-sm-2 col-form-label"><b>Have Chroinc</b></label>
-                                                <div class="col-sm-9">
-
-                                                    <input type="text" class="form-control" name='chronic'
-                                                        @foreach ($disease as $dis) value=" {{ $dis->chronic }}" @endforeach
-                                                        id="exampleInputchronic" placeholder="Yes / No"
-                                                        style="width: 20%;">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group " style="padding-right: .5em;">
-                                                <label for="exampleInputAddress"><b>Health</b></label>
-                                                <br>
-                                                <input type="text" name="disease_name"
-                                                    @foreach ($disease as $dis) value="{{ $dis->disease_name }}" @endforeach
-                                                    style="width: 30%; overflow: visible; border: 1px solid #CED4DA;
+                                            <input type="text" name="disease_name"
+                                                @foreach ($disease as $dis) value="{{ $dis->disease_name }}" @endforeach
+                                                style="width: 30%; overflow: visible; border: 1px solid #CED4DA;
                                     font-weight: 400;
                                     font-size: 0.92rem;width: 18%;
-                                    border-radius: 4px ; padding: 10px;" placeholder="Disease Name" />
-                                                <input type="number" name="disease_degree"
-                                                    @foreach ($disease as $dis) value="{{ $dis->disease_degree }}" @endforeach
-                                                    style="width: 30%;overflow: visible; border: 1px solid #CED4DA;
+                                    border-radius: 4px ; padding: 10px;"
+                                                placeholder="Disease Name" />
+                                            <input type="number" name="disease_degree"
+                                                @foreach ($disease as $dis) value="{{ $dis->disease_degree }}" @endforeach
+                                                style="width: 30%;overflow: visible; border: 1px solid #CED4DA;
                                           font-weight: 400;
                                           font-size: 0.92rem;width: 18%;
-                                          border-radius: 4px ;  padding: 10px;" placeholder="Disease Degree" />
-                                                <span
-                                                    style="font-family: Times, serif; font: 85;color: rgb(187, 111, 111)">
-                                                    * Enter
-                                                    (No) if you hasn't</span>
+                                          border-radius: 4px ;  padding: 10px;"
+                                                placeholder="Disease Degree" />
+                                            <span
+                                                style="font-family: Times, serif; font: 85;color: rgb(187, 111, 111)">
+                                                * Enter
+                                                (No) if you hasn't</span>
 
-                                            </div>
+                                        </div>
 
-                                            <div class="form-group" style="padding-right: .5em;">
-                                                <label for="exampleInputAddress"><b>Body</b></label>
-                                                <br>
-                                                <input type="number" name="height"
-                                                    @foreach ($disease as $dis) value="{{ $dis->height }}" @endforeach
-                                                    style="width: 30%; overflow: visible; border: 1px solid #CED4DA;
+                                        <div class="form-group" style="padding-right: .5em;">
+                                            <label for="exampleInputAddress"><b>Body</b></label>
+                                            <br>
+                                            <input type="number" name="height"
+                                                @foreach ($disease as $dis) value="{{ $dis->height }}" @endforeach
+                                                style="width: 30%; overflow: visible; border: 1px solid #CED4DA;
                                     font-weight: 400;
                                     font-size: 0.92rem;width: 18%;
-                                    border-radius: 4px ; padding: 10px;" placeholder="Height :100" />
-                                                <input type="number" name="weight"
-                                                    @foreach ($disease as $dis) value="{{ $dis->weight }}" @endforeach
-                                                    style="width: 30%;overflow: visible; border: 1px solid #CED4DA;
+                                    border-radius: 4px ; padding: 10px;"
+                                                placeholder="Height :100" />
+                                            <input type="number" name="weight"
+                                                @foreach ($disease as $dis) value="{{ $dis->weight }}" @endforeach
+                                                style="width: 30%;overflow: visible; border: 1px solid #CED4DA;
                                           font-weight: 400;
                                           font-size: 0.92rem;width: 18%;
-                                          border-radius: 4px ;  padding: 10px;" placeholder="Weight : cm" />
+                                          border-radius: 4px ;  padding: 10px;"
+                                                placeholder="Weight : cm" />
 
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <label for="exampleInputchroinc" class="col-sm-2 col-form-label"><b>Extra
+                                                    Data of charactristic
+                                                </b></label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" name='extra_data'
+                                                    @foreach ($disease as $dis) value="{{ $dis->extra_data }}" @endforeach
+                                                    id="exampleInputchroinc" placeholder="Extra Data"
+                                                    style="width: 50%; height: 100%;">
                                             </div>
-
-                                            <div class="form-group ">
-                                                <label for="exampleInputchroinc"
-                                                    class="col-sm-2 col-form-label"><b>Extra Data of charactristic
-                                                    </b></label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" name='extra_data'
-                                                        @foreach ($disease as $dis) value="{{ $dis->extra_data }}" @endforeach
-                                                        id="exampleInputchroinc" placeholder="Extra Data"
-                                                        style="width: 50%; height: 100%;">
-                                                </div>
-                                            </div>
+                                        </div>
 
 
-                                            <div style="text-align: center">
-                                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                                <button type="reset" class="btn btn-warning">Reset</button>
-                                            </div>
+                                        <div style="text-align: center">
+                                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                            <button type="reset" class="btn btn-warning">Reset</button>
+                                        </div>
 
 
 

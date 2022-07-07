@@ -19,6 +19,36 @@ use App\Models\EduData1;
 
 class DoctorController extends Controller
 {
+
+
+    public function doctorhome()
+    {
+        return view('Doctor.doctor_home');
+    }
+
+    public function login()
+    {
+        return view('Doctor.login');
+    }
+    public function dologin(Request $request)
+    {
+        $data=$request->validate([
+            'username'=>'required|email',
+            'password'=>'required'
+        ]);
+        
+       if(auth()->guard('doctors')->attempt($data)) {
+       return redirect(url('/doctorHome'));
+       }else{
+        return redirect(url('doctor/login'));
+
+       }
+    }
+    public function logout()
+    {
+      auth()->guard('doctors')-> logout();
+      return redirect(url('doctor/login'));
+    } 
     /**
      * Display a listing of the resource.
      *
@@ -39,12 +69,7 @@ class DoctorController extends Controller
         // dd($data);
         return view('Doctor.doctor_index',['data'=>$data]);
     }
-    public function home(){
-        return view('Doctor.doctor_home');
-    }
-
-
-
+   
     /**
      * Show the form for creating a new resource.
      *

@@ -40,6 +40,23 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admins' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'doctors' => [
+            'driver' => 'session',
+            'provider' => 'doctors',
+        ],
+        'affairs' => [
+            'driver' => 'session',
+            'provider' => 'affairs',
+        ],
+        'officers' => [
+            'driver' => 'session',
+            'provider' => 'officers',
+        ],
+        
     ],
 
     /*
@@ -64,6 +81,27 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        
+        'doctors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Doctor::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+        
+        'affairs' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\StdAffair::class,
+        ],
+        'officers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\EntryOfficer::class,
+        ],
+      
+
 
         // 'users' => [
         //     'driver' => 'database',

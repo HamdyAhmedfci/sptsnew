@@ -19,6 +19,7 @@ use App\Models\Specialist;
 use App\Models\StdAffair;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Scalar\MagicConst\Dir;
 
 use function PHPSTORM_META\type;
@@ -31,6 +32,29 @@ class adminController extends Controller
         return view('Admin.home');
     }
 
+    public function login()
+    {
+        return view('Admin.login');
+    }
+    public function dologin(Request $request)
+    {
+        $data=$request->validate([
+            'username'=>'required|email',
+            'password'=>'required'
+        ]);
+        
+       if(auth()->guard('admins')->attempt($data)) {
+       return redirect(url('/adminHome'));
+       }else{
+        return redirect(url('/admin/login'));
+
+       }
+    }
+    public function logout()
+    {
+      auth()->guard('admins')-> logout();
+      return redirect(url('/admin/login'));
+    }
 
     //=================================================Accounts===============================================
    //=========================================================================================================

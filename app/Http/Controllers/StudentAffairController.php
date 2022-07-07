@@ -16,10 +16,35 @@ use App\Models\EduLevel;
 use App\Models\Sublevel;
 use App\Models\Term;
 use App\Models\EduData1;
-
+use Illuminate\Support\Facades\Auth;
 
 class StudentAffairController extends Controller
 {
+  
+
+    public function login()
+    {
+        return view('StudentAffairs.login');
+    }
+    public function dologin(Request $request)
+    {
+        $data=$request->validate([
+            'username'=>'required|email',
+            'password'=>'required'
+        ]);
+        
+       if(auth('affairs')->attempt($data)) {
+       return redirect(url('affair/index'));
+       }else{
+        return redirect(url('affair/login'));
+
+       }
+    }
+    public function logout()
+    {
+      auth()->guard('affairs')-> logout();
+      return redirect(url('affair/login'));
+    } 
     /**
      * Display a listing of the resource.
      *

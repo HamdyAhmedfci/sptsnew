@@ -35,6 +35,38 @@ class entryOfficerController extends Controller
     }
 //----------------------------------------------------------------------
 
+public function login()
+{
+    return view('EntryOfficer.login');
+}
+public function dologin(Request $request)
+{
+    $data=$request->validate([
+        'username'=>'required|email',
+        'password'=>'required'
+    ]);
+    
+   if(auth()->guard('officers')->attempt($data)) {
+   return redirect(url('/entry/home'));
+   }else{
+    return redirect(url('/entry/login'));
+
+   }
+}
+public function logout()
+{
+  auth()->guard('officers')-> logout();
+  return redirect(url('/entry/login'));
+}
+
+
+
+
+
+
+
+
+
 
 //-------------------------index--------------------------
     public function l1($id){

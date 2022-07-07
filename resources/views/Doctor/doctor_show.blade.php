@@ -27,7 +27,6 @@
         ul li a {
             color: rgb(75, 73, 172);
         }
-
     </style>
 </head>
 
@@ -38,7 +37,8 @@
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo mr-7 " href="{{ url('doctor/index') }}"><img src="images/track.svg"
                         class="mr-2" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="{{ url('doctor/index') }}"><img src="images/tlogo.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="{{ url('doctor/index') }}"><img src="images/tlogo.svg"
+                        alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -47,25 +47,26 @@
 
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item dropdown">
-
+  
                     </li>
                     <li class="nav-item nav-profile dropdown">
+  
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img src="images/faces/my-profile-icon-png-3 (1).jpg" alt="profile" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
                             <a class="dropdown-item">
-                                <i class="ti-settings text-primary"></i>
-                                Settings
+                                <i class="ti- text-primary"></i>
+                                Show Profile
                             </a>
-                            <a class="dropdown-item">
+                            <a href="{{ url('/doctor/logout') }}" class="dropdown-item">
                                 <i class="ti-power-off text-primary"></i>
                                 Logout
                             </a>
                         </div>
                     </li>
-
+  
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
                     data-toggle="offcanvas">
@@ -103,74 +104,89 @@
             <!-- partial:../../partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url('doctor/index') }}">
-                      <i class="icon-grid menu-icon"></i>
-                      <span class="menu-title">Dashboard</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#primary" aria-expanded="false" aria-controls="primary">
-                      <i class="icon-book menu-icon"></i>
-                      <span class="menu-title">primary</span>
-                      <i class="menu-arrow"></i>
-                    </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('doctor/index') }}">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#primary" aria-expanded="false"
+                            aria-controls="primary">
+                            <i class="icon-book menu-icon"></i>
+                            <span class="menu-title">primary</span>
+                            <i class="menu-arrow"></i>
+                        </a>
 
-                    <div class="collapse" id="primary">
-                    <ul class="nav flex-column sub-menu">
+                        <div class="collapse" id="primary">
+                            <ul class="nav flex-column sub-menu">
 
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/one') }}"  > 1 </a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/two') }}" > 2 </a>
-                      </li>
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/three') }}" >3</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/four') }}" >4</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/five') }}" >5</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/sex') }}" >6</a></li>
-                    </ul>
-                    </div>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/one') }}"> 1 </a>
+                                </li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/two') }}"> 2
+                                    </a>
+                                </li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/three') }}">3</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/four') }}">4</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/five') }}">5</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/sex') }}">6</a></li>
+                            </ul>
+                        </div>
 
 
-                  </li>
-                              <!-- ************************************************************************** -->
-                        <!-- **************************************************************************************** -->
-                        <li class="nav-item">
-                          <a class="nav-link" data-toggle="collapse" href="#middle" aria-expanded="false" aria-controls="middle">
+                    </li>
+                    <!-- ************************************************************************** -->
+                    <!-- **************************************************************************************** -->
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#middle" aria-expanded="false"
+                            aria-controls="middle">
                             <i class="icon-book menu-icon"></i>
                             <span class="menu-title">middle</span>
                             <i class="menu-arrow"></i>
-                          </a>
+                        </a>
 
-                          <div class="collapse" id="middle">
-                          <ul class="nav flex-column sub-menu">
+                        <div class="collapse" id="middle">
+                            <ul class="nav flex-column sub-menu">
 
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/seven') }}" > 1 </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/eight') }}" > 2 </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/nine') }}" >3</a></li>
-                          </ul>
-                          </div>
-                        </li>
-                        <!-- *************************************************************************** -->
-                        <li class="nav-item">
-                          <a class="nav-link" data-toggle="collapse" href="#secondary" aria-expanded="false" aria-controls="secondary">
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/seven') }}">
+                                        1 </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/eight') }}">
+                                        2 </a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/nine') }}">3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- *************************************************************************** -->
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#secondary" aria-expanded="false"
+                            aria-controls="secondary">
                             <i class="icon-book menu-icon"></i>
                             <span class="menu-title">secondary</span>
                             <i class="menu-arrow"></i>
-                          </a>
+                        </a>
 
-                          <div class="collapse" id="secondary">
-                          <ul class="nav flex-column sub-menu">
+                        <div class="collapse" id="secondary">
+                            <ul class="nav flex-column sub-menu">
 
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/ten') }}" > 1 </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/eleven') }}" > 2 </a>
-                            </li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/twelve') }}" >3</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/ten') }}"> 1
+                                    </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('doctor/index/eleven') }}">
+                                        2 </a>
+                                </li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/twelve') }}">3</a></li>
 
-                          </ul>
-                          </div>
+                            </ul>
+                        </div>
 
-                        </li>
+                    </li>
 
-                  {{-- <li class="nav-item">
+                    {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ url('affair/create') }}">
                       <i class="icon-plus menu-icon"></i>
                       <span class="menu-title">Add Student</span>
@@ -183,7 +199,7 @@
 
 
                 </ul>
-              </nav>
+            </nav>
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
@@ -230,7 +246,7 @@
                                                                     <th scope="row">Full Name</th>
                                                                     <td>
                                                                         @foreach ($data as $info)
-                                                                            {{ $info->Name . ' ' . $info->FatherName . ' '  . $info->Surname }}
+                                                                            {{ $info->Name . ' ' . $info->FatherName . ' ' . $info->Surname }}
                                                                         @endforeach
                                                                     </td>
                                                                 </tr>
@@ -271,21 +287,22 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Year </th>
-                                                                    @foreach ( $data as $info )
-                                                                         <td colspan="2" >{{ $info->year }}</td>
+                                                                    @foreach ($data as $info)
+                                                                        <td colspan="2">{{ $info->year }}</td>
                                                                     @endforeach
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Educational Level</th>
-                                                                    @foreach ( $data as $info )
-                                                                         <td colspan="2" >{{ $info->EduLevelName }}</td>
-
+                                                                    @foreach ($data as $info)
+                                                                        <td colspan="2">{{ $info->EduLevelName }}
+                                                                        </td>
                                                                     @endforeach
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Sublevel</th>
-                                                                    @foreach ( $data as $info )
-                                                                    <td colspan="2" >{{ $info->SubLevelName }}</td>
+                                                                    @foreach ($data as $info)
+                                                                        <td colspan="2">{{ $info->SubLevelName }}
+                                                                        </td>
                                                                     @endforeach
                                                                 </tr>
 
@@ -299,11 +316,11 @@
                                                 <div class="form-2">
 
 
-                                                  <div class="section"
+                                                    <div class="section"
                                                         style="text-align: center; font-weight: bold;">Father
                                                         Information</div>
 
-                                                     <div class="inner-wrap">
+                                                    <div class="inner-wrap">
                                                         <table class="table table-striped table-bordered">
 
                                                             <tbody>
@@ -318,14 +335,14 @@
                                                                 </tr>
 
                                                                 <tr>
-                                                                  <th scope="row" >Father SSN</th>
-                                                                  <td>
-                                                                      @foreach ($data as $info)
-                                                                          {{ $info->FatherSsn }}
-                                                                      @endforeach
-                                                                  </td>
+                                                                    <th scope="row">Father SSN</th>
+                                                                    <td>
+                                                                        @foreach ($data as $info)
+                                                                            {{ $info->FatherSsn }}
+                                                                        @endforeach
+                                                                    </td>
 
-                                                              </tr>
+                                                                </tr>
 
                                                                 <tr>
                                                                     <th scope="row">Father Job</th>
@@ -340,7 +357,7 @@
                                                                     <th scope="row">Father Phone</th>
                                                                     <td>
                                                                         @foreach ($data as $info)
-                                                                            {{ '0'.$info->FatherPhone }}
+                                                                            {{ '0' . $info->FatherPhone }}
                                                                         @endforeach
                                                                     </td>
 
@@ -357,7 +374,7 @@
                                                         style="text-align: center; font-weight: bold;">Mother
                                                         Information</div>
 
-                                                     <div class="inner-wrap">
+                                                    <div class="inner-wrap">
                                                         <table class="table table-striped table-bordered">
 
                                                             <tbody>
@@ -372,14 +389,14 @@
                                                                 </tr>
 
                                                                 <tr>
-                                                                  <th scope="row">Mother SSN</th>
-                                                                  <td>
-                                                                      @foreach ($data as $info)
-                                                                          {{ $info->MotherSsn }}
-                                                                      @endforeach
-                                                                  </td>
+                                                                    <th scope="row">Mother SSN</th>
+                                                                    <td>
+                                                                        @foreach ($data as $info)
+                                                                            {{ $info->MotherSsn }}
+                                                                        @endforeach
+                                                                    </td>
 
-                                                              </tr>
+                                                                </tr>
 
                                                                 <tr>
                                                                     <th scope="row">Mother Job</th>
@@ -394,7 +411,7 @@
                                                                     <th scope="row">Mother Phone</th>
                                                                     <td>
                                                                         @foreach ($data as $info)
-                                                                            {{ '0'.$info->MotherPhone }}
+                                                                            {{ '0' . $info->MotherPhone }}
                                                                         @endforeach
                                                                     </td>
 
@@ -421,47 +438,47 @@
                                                                     <tr>
                                                                         <th scope="row">chronic disease:</th>
                                                                         <td>
-                                                                          @foreach ($data as $dis)
-                                                                          {{ $dis->chronic }}
-                                                                      @endforeach
+                                                                            @foreach ($data as $dis)
+                                                                                {{ $dis->chronic }}
+                                                                            @endforeach
                                                                         </td>
 
                                                                     </tr>
                                                                     <tr>
 
-                                                                      <th scope="row">chronic name:</th>
-                                                                      <td>
-                                                                        @foreach ($data as $dis)
-                                                                          {{ $dis->disease_name }}
-                                                                      @endforeach
-                                                                      </td>
+                                                                        <th scope="row">chronic name:</th>
+                                                                        <td>
+                                                                            @foreach ($data as $dis)
+                                                                                {{ $dis->disease_name }}
+                                                                            @endforeach
+                                                                        </td>
 
-                                                                  </tr>
+                                                                    </tr>
 
                                                                     <tr>
                                                                         <th scope="row">disease degree:</th>
                                                                         <td>
-                                                                          @foreach ($data as $dis)
-                                                                          {{ $dis->disease_degree }}
-                                                                      @endforeach
+                                                                            @foreach ($data as $dis)
+                                                                                {{ $dis->disease_degree }}
+                                                                            @endforeach
                                                                         </td>
 
                                                                     </tr>
                                                                     <tr>
                                                                         <th scope="row">Height:</th>
                                                                         <td>
-                                                                          @foreach ($data as $dis)
-                                                                          {{ $dis->height }}
-                                                                      @endforeach
+                                                                            @foreach ($data as $dis)
+                                                                                {{ $dis->height }}
+                                                                            @endforeach
                                                                         </td>
 
                                                                     </tr>
                                                                     <tr>
                                                                         <th scope="row">weight:</th>
                                                                         <td>
-                                                                          @foreach ($data as $dis)
-                                                                          {{ $dis->weight }}
-                                                                      @endforeach
+                                                                            @foreach ($data as $dis)
+                                                                                {{ $dis->weight }}
+                                                                            @endforeach
                                                                         </td>
 
                                                                     </tr>
@@ -469,9 +486,9 @@
                                                                         <th scope="row">Distinctive physical
                                                                             characteristics:</th>
                                                                         <td>
-                                                                          @foreach ($data as $dis)
-                                                                          {{ $dis->extra_data }}
-                                                                      @endforeach
+                                                                            @foreach ($data as $dis)
+                                                                                {{ $dis->extra_data }}
+                                                                            @endforeach
                                                                         </td>
 
                                                                     </tr>
