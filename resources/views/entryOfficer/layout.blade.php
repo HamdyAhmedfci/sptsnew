@@ -142,8 +142,8 @@
                             {{-- <a class="dropdown-item">
                                 <i class="ti-settings text-primary"></i> Settings
                             </a> --}}
-                            <a class="dropdown-item">
-                                <i class="ti-power-off text-primary"></i> Logout
+                            <a class="dropdown-item"href="{{ url('entry/logout') }}">
+                                <i class="ti-power-off text-primary" ></i> Logout
                             </a>
                         </div>
                     </li>

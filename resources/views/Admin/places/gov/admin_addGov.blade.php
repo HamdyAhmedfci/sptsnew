@@ -27,20 +27,21 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="staff.html"><img src="images/track (1).svg"
-                        class="mr-2" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="staff.html"><img src="images/tlogo.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo mr-5" href="staff.html"><img src="images/track (1).svg" class="mr-2"
+                        alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="staff.html"><img src="images/tlogo.svg"
+                        alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     <span class="icon-menu"></span>
                 </button>
-
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item dropdown">
 
                     </li>
                     <li class="nav-item nav-profile dropdown">
+
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img src="images/faces/my-profile-icon-png-3 (1).jpg" alt="profile" />
                         </a>
@@ -48,9 +49,9 @@
                             aria-labelledby="profileDropdown">
                             <a class="dropdown-item">
                                 <i class="ti-settings text-primary"></i>
-                                Settings
+                                Show Profile
                             </a>
-                            <a class="dropdown-item">
+                            <a href="{{ url('/admin/logout') }}" class="dropdown-item">
                                 <i class="ti-power-off text-primary"></i>
                                 Logout
                             </a>
@@ -115,10 +116,35 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="staff-t.html">
+
+                        <a class="nav-link" data-toggle="collapse" href="#primary" aria-expanded="false"
+                            aria-controls="primary">
                             <i class="icon-head menu-icon"></i>
                             <span class="menu-title">Staff</span>
+                            <i class="menu-arrow"></i>
                         </a>
+
+                        <div class="collapse" id="primary">
+                            <ul class="nav flex-column sub-menu">
+
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/index/staff') }}">
+                                        Admin </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('manager/index/staff') }}">
+                                        Manager </a>
+                                </li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('affair/index/staff') }}">Student Affair</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('entry/officer/index/staff') }}">Entry Officer</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('doctor/index/staff') }}">Doctor</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('specialist/index/staff') }}">Specialist</a></li>
+                            </ul>
+                        </div>
+
+
+
                     </li>
 
                     <li class="nav-item">
@@ -172,9 +198,11 @@
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link"
                                         href="{{ url('admin/index/governorate') }}">Governorate</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/index/town') }}">Town</a>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('admin/index/town') }}">Town</a>
                                 </li>
-                                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/index/district') }}">District</a>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('admin/index/district') }}">District</a>
                                 </li>
                             </ul>
                         </div>
@@ -193,18 +221,19 @@
                                 <div class="card-body">
 
                                     @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
 
 
 
-                                    <form class="forms-sample" action="{{ url('admin/store/governorate') }}" method="POST">
+                                    <form class="forms-sample" action="{{ url('admin/store/governorate') }}"
+                                        method="POST">
                                         @csrf
                                         @method('post')
 
@@ -212,7 +241,8 @@
                                             <label for="exampleInputYear"> Governorate</label>
                                             <br>
                                             <input type="text" class="form-control" id="exampleInputYear"
-                                                name="GovName" value="{{ old('GovName') }}" placeholder="Governorate">
+                                                name="GovName" value="{{ old('GovName') }}"
+                                                placeholder="Governorate">
 
                                         </div>
 
@@ -239,7 +269,8 @@
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
                         <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2022.
-                            Premium <a href="#">Student Performance Tracking System</a> All rights reserved.</span>
+                            Premium <a href="#">Student Performance Tracking System</a> All rights
+                            reserved.</span>
                         <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made
                             with <i class="ti-heart text-danger ml-1"></i></span>
                     </div>
